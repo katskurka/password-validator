@@ -1,8 +1,8 @@
 function validatePassword(password) {
-  if (password.length >= 8 && passwordLowerCase === true && passwordUpperCase === true && passwordSpecialChar === true) return true
+  if (password.length >= 8 && hasLowerCase === true && hasUpperCase === true && hasSpecialChar === true) return true
 }
 
-function passwordLowerCase(password) {
+function hasLowerCase(password) {
   for (let char = 0; char < password.length; char++) {
     if (char === char.toLowerCase()) break
   }
@@ -10,14 +10,21 @@ function passwordLowerCase(password) {
   return true
 }
 
-function passwordUpperCase(password) {
+function hasUpperCase(password) {
   for (let char = 0; char < password.length; char++) {
+    // let currentChar = password [i]  should this be added?
     if (char === char.toUpperCase()) break
   }
 
   return true
 }
 
-function passwordSpecialChar() {
+function hasSpecialChar(password) {
+  let specialChars = '!@#$%^&*?><+='
 
+  for (let char = 0; char < password.length; char++) {
+    if (char === char.includes(specialChars)) break
+  }
+
+  return true
 }
