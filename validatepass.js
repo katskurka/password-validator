@@ -1,21 +1,21 @@
 function validatePassword(password) {
-  if (password.length >= 8 && 
+  if (password.length >= 8 && passwordLowerCase === true && passwordUpperCase === true && passwordSpecialChar === true) return true
 }
 
-function passwordLength(password) {
-  if (password.length >= 8) {
-    return true
-  } else {
-    return false
+function passwordLowerCase(password) {
+  for (let char = 0; char < password.length; char++) {
+    if (char === char.toLowerCase()) break
   }
+
+  return true
 }
 
-function passwordLowerCase() {
+function passwordUpperCase(password) {
+  for (let char = 0; char < password.length; char++) {
+    if (char === char.toUpperCase()) break
+  }
 
-}
-
-function passwordUpperCase() {
-
+  return true
 }
 
 function passwordSpecialChar() {
