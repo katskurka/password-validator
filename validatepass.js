@@ -7,57 +7,57 @@ function correctLength(password) {
   }
 }
 function hasLowerCase(password) {
+  let hasLower = false
+
   for (let char = 0; char < password.length; char++) {
     if (password[char] === password[char].toLowerCase()) {
-      return true
-    }
-    else {
-      return false
+      hasLower = true
     }
   }
+
+  return hasLower
 }
 
 function hasUpperCase(password) {
-  for (let char = 0; char < password.length; char++) {
-    // let currentChar = password [i]  should this be added?
-    if (password[char] === password[char].toUpperCase()) break
+  let hasUpper = false
+
+  for (let char = 0; char <password.length; char++) {
+    if (password[char] === password[char].toLowerCase()) {
+      hasLower = true
+    }
   }
 
-  return true
+  return hasUpper
 }
 
 function hasSpecialChar(password) {
   let specialChars = '!@#$%^&*?><+='
+  let hasSpecial = false
 
   for (let char = 0; char < password.length; char++) {
-    if (password[char] === password[char].includes(specialChars)) break
+    if (specialChars.includes(password[char])) {
+      hasSpecial = true
+    }
   }
 
-  return true
+  return hasSpecial
 }
 
 function hasNumber(password) {
+  let checkNumbers = '0123456789'
+  let isNumber = false
+
   for (let char = 0; char < password.length; char++) {
-    if (password[char] === !NaN) break
+    if (checkNumbers.includes(password[char])) {
+      isNumber = true
+    }
   }
 
-  return true
+  return isNumber
 }
 
 function validatePassword(password) {
-  let passwordLength = false
-  let lowerCase = false
-  let upperCase = false
-  let specialCharacter = false
-  let checkNumber = false
-
-  passwordLength = correctLength(password)
-  lowerCase = hasLowerCase(password)
-  upperCase = hasUpperCase(password)
-  specialCharacter = hasSpecialChar(password)
-  checkNumber = hasNumber(password)
-
-  return passwordLength && lowerCase && upperCase & specialCharacter && checkNumber
+  return correctLength(password) && hasLowerCase(password) && hasUpperCase(password) && hasSpecialChar(password) && hasNumber(password)
 }
 
 module.exports = validatePassword
