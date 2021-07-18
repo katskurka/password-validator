@@ -7,28 +7,42 @@ function correctLength(password) {
   }
 }
 function hasLowerCase(password) {
-  let hasLower = false
+  let lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
+  let isLower = false
 
   for (let char = 0; char < password.length; char++) {
-    if (password[char] === password[char].toLowerCase()) {
-      hasLower = true
+    if (lowerCaseLetters.includes(password[char])) {
+      isLower = true
     }
   }
 
-  return hasLower
+  return isLower
 }
 
 function hasUpperCase(password) {
-  let hasUpper = false
+  let upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let isUpper = false
 
-  for (let char = 0; char <password.length; char++) {
-    if (password[char] === password[char].toLowerCase()) {
-      hasLower = true
+  for (let char = 0; char < password.length; char++) {
+    if (upperCaseLetters.includes(password[char])) {
+      isUpper = true
     }
   }
 
-  return hasUpper
+  return isUpper
 }
+
+/* function hasUpperCase(password) {
+  let isUpper = false
+
+  for (let char = 0; char < password.length; char++) {
+    if (password[char] === password[char].toUpperCase()) {
+      isUpper = true
+    }
+  }
+
+  return isUpper
+} */
 
 function hasSpecialChar(password) {
   let specialChars = '!@#$%^&*?><+='
@@ -57,7 +71,8 @@ function hasNumber(password) {
 }
 
 function validatePassword(password) {
-  return correctLength(password) && hasLowerCase(password) && hasUpperCase(password) && hasSpecialChar(password) && hasNumber(password)
+  return correctLength(password) && hasLowerCase(password) && hasUpperCase(password) &&
+  hasSpecialChar(password) && hasNumber(password)
 }
 
 module.exports = validatePassword
